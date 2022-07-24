@@ -1,21 +1,20 @@
 package by.glavdel.recipeapp.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
+@EqualsAndHashCode(exclude = {"recipes"})
 @Entity
 //@Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String description;
 
     @ManyToMany(mappedBy = "categories")
